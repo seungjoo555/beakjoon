@@ -9,14 +9,16 @@ def is_prime(n):
             return False
     return True
 
-superPrime = []
-check = 1
-for i in range(3,318138,2):
-        if is_prime(i):
-            check += 1
-            if is_prime(check):
-                superPrime.append(i)
+superPrime = [3]
+check = 2
 T = int(input())
 for i in range(T):
     n = int(input())
+    while n > len(superPrime):
+        for i in range(superPrime[-1]+2,318138,2):
+            if is_prime(i):
+                check += 1
+                if is_prime(check):
+                    superPrime.append(i)
+                    break
     print(superPrime[n-1])
