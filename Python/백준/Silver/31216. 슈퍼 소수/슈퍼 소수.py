@@ -2,23 +2,16 @@ import math
 import sys
 input = sys.stdin.readline
 
-def is_prime(n):
-    if n < 2: return False
-    for i in range(2, int(math.sqrt(n)) + 1):
-        if n % i == 0:
-            return False
-    return True
+def get_primes(n):
+    sieve = [True] * (n + 1)
+    for p in range(2, int(n**0.5) + 1):
+        if sieve[p]:
+            for i in range(p * p, n + 1, p):
+                sieve[i] = False
+    return [p for p in range(2, n + 1) if sieve[p]]
 
-superPrime = [3]
-check = 2
+superPrime = get_primes(318137)
 T = int(input())
 for i in range(T):
     n = int(input())
-    while n > len(superPrime):
-        for i in range(superPrime[-1]+2,318138,2):
-            if is_prime(i):
-                check += 1
-                if is_prime(check):
-                    superPrime.append(i)
-                    break
-    print(superPrime[n-1])
+    print(superPrime[superPrime[n-1]-1])
