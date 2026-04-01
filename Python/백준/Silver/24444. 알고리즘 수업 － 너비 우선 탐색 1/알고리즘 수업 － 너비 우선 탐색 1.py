@@ -26,5 +26,4 @@ def bfs(start):
 Queue = deque()
 visited =[0] *(n+1)
 bfs(r)
-# sys.stdout.write('\n'.join(map(str, visited[1:])))
-print(*visited[1:], sep = '\n')
+sys.stdout.write('\n'.join(map(str, visited[1:])))
