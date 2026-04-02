@@ -1,11 +1,14 @@
 N = int(input())
-bag = 0
-for i in range(N//5, -1, -1):
-    for j in range(N//3+1):
-        if N == ((5*i) + (3*j)):
-            bag = i+j
-    if bag:
-        print(bag)
+num_bag = 0
+
+while True:
+    if N % 5 == 0:
+        num_bag += N//5
         break
-else:
-    print(-1)
+    if N < 3:
+        num_bag = -1
+        break
+    N -= 3
+    num_bag += 1
+
+print(num_bag)
