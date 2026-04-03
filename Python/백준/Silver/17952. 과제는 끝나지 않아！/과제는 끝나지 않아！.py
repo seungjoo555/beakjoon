@@ -1,18 +1,20 @@
 import sys
-input = sys.stdin.readline
+input = map(int, sys.stdin.read().split())
 
-N = int(input())
+N = next(input)
 stack = []
 score = 0
 for i in range(N):
-    AT = list(map(int, input().split()))
-    if AT[0] != 0:
-        AT[2] -= 1
+    if next(input):
+        AT = [next(input),next(input)-1]
         stack.append(AT)
-    if stack:
-        if AT[0] == 0:
-            stack[-1][2] -= 1
-        if stack[-1][2] == 0:
+        if stack[-1][1] == 0:
             f = stack.pop()
-            score += f[1]
+            score += f[0]
+    else:
+        if stack:
+            stack[-1][1] -= 1
+            if stack[-1][1] == 0:
+                f = stack.pop()
+                score += f[0]
 print(score)
