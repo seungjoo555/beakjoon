@@ -17,4 +17,5 @@ def dfs(node):
             dfs(adj_node)
 
 dfs(1)
-print('\n'.join(map(str, pr[1:])))
+for i in range(1,len(pr)):
+    print(pr[i])
