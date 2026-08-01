@@ -1,13 +1,7 @@
 def solution(s):
-    s = s.replace('zero','0')
-    s = s.replace('one','1')
-    s = s.replace('two','2')
-    s = s.replace('three','3')
-    s = s.replace('four','4')
-    s = s.replace('five','5')
-    s = s.replace('six','6')
-    s = s.replace('seven','7')
-    s = s.replace('eight','8')
-    s = s.replace('nine','9')
+    st = {0:'zero', 1:'one', 2:'two', 3:'three', 4:'four', 
+          5:'five', 6:'six', 7:'seven', 8:'eight', 9:'nine'}
+    for key, value in st.items():
+        s = s.replace(value, str(key))
     answer = int(s)
     return answer
