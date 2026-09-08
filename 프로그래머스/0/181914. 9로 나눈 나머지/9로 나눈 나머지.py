@@ -1,3 +1,3 @@
 def solution(number):
-    answer = sum(list(map(int,number))) % 9
+    answer = sum(map(int,number)) % 9
     return answer
