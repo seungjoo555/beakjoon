@@ -1,15 +1,12 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 class Solution {
     public String solution(String my_string, int[] indices) {
+        char[] str = my_string.toCharArray();
+        for (int idx : indices){
+            str[idx] = ' ';
+        }
         StringBuilder sb = new StringBuilder();
-        ArrayList<Integer> nIndices = 
-            Arrays.stream(indices).boxed().collect(Collectors.toCollection(ArrayList::new));
-        for (int i = 0; i < my_string.length(); i++){
-            if (nIndices.contains(i)) continue;
-            sb.append(my_string.charAt(i));
+        for (char ch : str){
+            if (ch != ' ') sb.append(ch);
         }
         String answer = sb.toString();
         return answer;
